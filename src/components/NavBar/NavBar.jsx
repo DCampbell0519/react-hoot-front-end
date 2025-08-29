@@ -7,19 +7,32 @@ const NavBar = () => {
 
   const handleSignOut = () => {
     // 1. Remove the token from local storage
-    localStorage.removeItem('token')
-    
+    localStorage.removeItem("token");
+
     // 2. Clear the user state from context
-    setUser(null)
-  }
+    setUser(null);
+  };
 
   return (
     <nav>
       {user ? (
         <ul>
           <li>Welcome back {user.username}</li>
-          <li><Link to='/'>Dashboard</Link></li>
-          <li><Link to='/' onClick={handleSignOut}>Sign Out</Link></li>
+          <li>
+            <Link to="/">HOME</Link>
+          </li>
+          <li>
+            <Link to="/hoots">HOOTS</Link>
+          </li>
+
+          <li>
+            <Link to='/hoots/new'>New HOOT</Link>
+          </li>
+          <li>
+            <Link to="/" onClick={handleSignOut}>
+              Sign Out
+            </Link>
+          </li>
         </ul>
       ) : (
         <ul>
